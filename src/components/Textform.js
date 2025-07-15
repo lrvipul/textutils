@@ -33,6 +33,7 @@ export default function Textform(props) {
         let boxtext = document.getElementById('myBox');
         boxtext.select();
         navigator.clipboard.writeText(boxtext.value);
+        document.getSelection().removeAllRanges();
         props.showAlert("Text Copied to Clipboard",'success')
     }
 
@@ -59,16 +60,16 @@ export default function Textform(props) {
                 <div className="mb-3">
                     <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'#042743':'white',color: props.mode==='dark'?'white':'black'}} id="myBox" rows="8"></textarea>
                 </div>
-                <button className="btn btn-primary mx-2" onClick={handleClickUp}>Convert to Uppercase</button>
-                <button className="btn btn-primary mx-2" onClick={handleClickLo}>Convert to Lowercase</button>
-                <button className="btn btn-primary mx-2" onClick={handleClickClear}>Clear Text</button>
-                <button className="btn btn-primary mx-2" onClick={handleCopy}>Copy Text</button>
-                <button className="btn btn-primary mx-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-2" onClick={handleClickUp}>Convert to Uppercase</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-2" onClick={handleClickLo}>Convert to Lowercase</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-2" onClick={handleClickClear}>Clear Text</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-2" onClick={handleCopy}>Copy Text</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
             </div>
             <div className="container">
                 <h1>Your Text Summary</h1>
-                <p>your text contains {text.split(" ").length} words and {text.length} characters</p>
-                <p> {0.01 * text.split(" ").length} minutes to read the text</p>
+                <p>your text contains {text.split(" ").filter(text_word => text_word !== "").length} words and {text.trim(" ").length} characters</p>
+                <p> {0.01 * text.trim(" ").split(" ").filter(text_word => text_word !== "").length} minutes to read the text</p>
                 <h3>Preview</h3>
                 <p>{text.length>0?text:'Please enter something in textareat to Preview it here'}</p>
             </div>
