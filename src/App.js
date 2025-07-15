@@ -6,8 +6,8 @@ import Navbar from './components/Navbar';
 import Textform from './components/Textform';
 import Alert from './components/Alert';
 
-// import { Routes, Route } from 'react-router-dom';
-// import { BrowserRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   const [mode,setMode] = useState('light');
@@ -38,25 +38,21 @@ function App() {
   } 
 
   return (
-    <>
-    
-    {/* <BrowserRouter> */}
+    <BrowserRouter>
       <Navbar title="TextUtils" aboutText="About" mode={mode} toggleMode={toggleMode}/>
-      <Alert alert={alert} />
+      <Alert alert={alert}/>
       <div className="container my-3">
           {/* /users = component-1 
           /users/info = component-2  
           exact is used to for this purpose */}
 
-          {/* <Routes>
+          <Routes>
             <Route exact path="/" element={<Textform heading="Enter text to analyse"   showAlert={showAlert} mode={mode}/> } />
             <Route exact path="/about" element={<About />} />
-          </Routes> */}
-          <Textform heading="Enter text to analyse"   showAlert={showAlert} mode={mode}/>
-          <About />
+          </Routes>
+        
       </div>
-    {/* </BrowserRouter> */}
-    </>
+    </BrowserRouter>
   );
 }
 
