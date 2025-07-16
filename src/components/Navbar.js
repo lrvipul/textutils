@@ -28,10 +28,21 @@ export default function Navbar(props) {
               <button className="btn btn-outline-success" type="submit">Search</button>
             </form> */}
 
-            <div className={`form-check form-switch text-${props.mode==='dark'?'light':'dark'}`}>
+            <div className='d-flex'>
+                <div className="bg-primary rounded mx-2" onClick={() => props.toggleMode('primary')}  style={{height:"25px",width:"25px",border:"2px solid orange"}}></div>
+                <div className="bg-secondary rounded mx-2" onClick={() => props.toggleMode('secondary')}  style={{height:"25px",width:"25px",border:"2px solid orange"}}></div>
+                <div className="bg-danger rounded mx-2" onClick={() => props.toggleMode('danger')}  style={{height:"25px",width:"25px",border:"2px solid orange"}}></div>
+                <div className="bg-success rounded mx-2" onClick={() => props.toggleMode('success')}  style={{height:"25px",width:"25px",border:"2px solid orange"}}></div>
+                <div className="bg-warning rounded mx-2" onClick={() => props.toggleMode('warning')}  style={{height:"25px",width:"25px",border:"2px solid orange"}}></div>
+                <div className="bg-dark rounded mx-2" onClick={() => props.toggleMode(null)}  style={{height:"25px",width:"25px",border:"2px solid orange"}}></div>
+                <div className="bg-light rounded mx-2" onClick={() => props.toggleMode(null)}  style={{height:"25px",width:"25px",border:"2px solid orange"}}></div>
+                 <label className="label" >Toggle Mode</label>
+            </div>
+
+            {/* <div className={`form-check form-switch text-${props.mode==='dark'?'light':'dark'}`}>
               <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="switchCheckDefault"/>
               <label className="form-check-label" htmlFor="switchCheckDefault">Enable {props.mode==='dark'?'Light':'Dark'}Mode</label>
-            </div>
+            </div> */}
           </div>
         </div>
       </nav>
