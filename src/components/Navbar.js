@@ -34,8 +34,8 @@ export default function Navbar(props) {
                 <div className="bg-danger rounded mx-2" onClick={() => props.toggleMode('danger')}  style={{height:"25px",width:"25px",border:"2px solid orange"}}></div>
                 <div className="bg-success rounded mx-2" onClick={() => props.toggleMode('success')}  style={{height:"25px",width:"25px",border:"2px solid orange"}}></div>
                 <div className="bg-warning rounded mx-2" onClick={() => props.toggleMode('warning')}  style={{height:"25px",width:"25px",border:"2px solid orange"}}></div>
-                <div className="bg-dark rounded mx-2" onClick={() => props.toggleMode(null)}  style={{height:"25px",width:"25px",border:"2px solid orange"}}></div>
-                <div className="bg-light rounded mx-2" onClick={() => props.toggleMode(null)}  style={{height:"25px",width:"25px",border:"2px solid orange"}}></div>
+                <div className="bg-dark rounded mx-2" onClick={(event) => props.toggleMode(null,event)}  style={{height:"25px",width:"25px",border:"2px solid orange"}}></div>
+                <div className="bg-light rounded mx-2" onClick={(event) => props.toggleMode(null,event)}  style={{height:"25px",width:"25px",border:"2px solid orange"}}></div>
                  <label className="label" >Toggle Mode</label>
             </div>
 
