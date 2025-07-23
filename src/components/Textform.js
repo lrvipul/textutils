@@ -55,17 +55,17 @@ export default function Textform(props) {
 
   return (
     <div>
-            <>
+          
             <div className="container">
                 <h1>{props.heading}</h1>
                 <div className="mb-3">
-                    <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'#042743':'white',color: props.mode==='dark'?'white':'black'}} id="myBox" rows="8"></textarea>
+                    <textarea className={`form-control ${props.mode !== 'dark' ? `bg-${props.mode}-subtle` : ''}`} value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'#13466e':'',color: props.mode==='dark'?'white':'black',border:"1px solid"}} id="myBox" rows="8"></textarea>
                 </div>
-                <button disabled={text.length === 0} className="btn btn-primary mx-2" onClick={handleClickUp}>Convert to Uppercase</button>
-                <button disabled={text.length === 0} className="btn btn-primary mx-2" onClick={handleClickLo}>Convert to Lowercase</button>
-                <button disabled={text.length === 0} className="btn btn-primary mx-2" onClick={handleClickClear}>Clear Text</button>
-                <button disabled={text.length === 0} className="btn btn-primary mx-2" onClick={handleCopy}>Copy Text</button>
-                <button disabled={text.length === 0} className="btn btn-primary mx-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+                <button disabled={text.length === 0} className={`btn btn-${props.mode}  mx-2 my-2`} onClick={handleClickUp}>Convert to Uppercase</button>
+                <button disabled={text.length === 0} className={`btn btn-${props.mode}  mx-2 my-2`} onClick={handleClickLo}>Convert to Lowercase</button>
+                <button disabled={text.length === 0} className={`btn btn-${props.mode}  mx-2 my-2`} onClick={handleClickClear}>Clear Text</button>
+                <button disabled={text.length === 0} className={`btn btn-${props.mode}  mx-2 my-2`} onClick={handleCopy}>Copy Text</button>
+                <button disabled={text.length === 0} className={`btn btn-${props.mode}  mx-2 my-2`} onClick={handleExtraSpaces}>Remove Extra Spaces</button>
             </div>
             <div className="container">
                 <h1>Your Text Summary</h1>
@@ -74,7 +74,7 @@ export default function Textform(props) {
                 <h3>Preview</h3>
                 <p>{text.length>0?text:'Text Preview!'}</p>
             </div>
-            </>
+         
     </div>
   )
 }
